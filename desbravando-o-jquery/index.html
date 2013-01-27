@@ -1,0 +1,353 @@
+<!doctype html>  
+<html lang="pt-BR">
+    
+    <head>
+        <meta charset="utf-8">
+
+        <title>Desbravando os métodos do jQuery - Ofelquis Gimenes</title>
+
+        <meta name="description" content="Desbravando os métodos do jQuery, como usar o jQuery ao seu favor, métodos uteis que te ajudam no dia-a-dia." />
+        <meta name="author" content="Ofelquis Gimenes" />
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+
+        <link rel="stylesheet" href="lib/css/zenburn.css" />
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Used to fade in a background when a specific slide state is reached -->
+            <div class="state-background"></div>
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section data-state="inicio">
+                    <h1>Desbravando o jQuery</h1>
+                </section>
+
+                <section data-state="inicio dois">
+                    <h2>Meu nome é Ofelquis</h2>
+                    <p>Sou desenvolvedor Front-End na Agência Digital <a href="http://icomp.com" title="Agência Digital ICOMP" target="_blank" class="roll"><span data-title="ICOMP">ICOMP</span></a>
+                      escrevo sobre desenvolvimento Web, no 
+                      <a href="http://tutsmais.com.br/blog/author/ofelquis/" title="TutsMais" target="_blank" class="roll"><span data-title="TutsMais">TutsMais</span></a>, 
+                      <a href="http://www.frontendbrasil.com.br/author/ofelquis/" title="Front-End Brasil" target="_blank" class="roll"><span data-title=" Front-End Brasil"> Front-End Brasil</span></a> e no 
+                      <a href="http://javascriptbrasil.com/author/ofelquis" title="JavaScript Brasil" target="_blank" class="roll"><span data-title="JavaScript Brasil">JavaScript Brasil</span></a>,
+                      e também sou um dos organizadores do <a href="http://devcastbrasil.com/" title="DevCast Brasil" target="_blank" class="roll"><span data-title="DevCast Brasil">DevCast Brasil</span></a>.</p>
+                </section>
+
+                <section>
+                    <h2>Sumario</h2>
+                    <ul>
+                        <li>Com jQuery nós escrevemos menos</li>
+                        <li>O básico do básico</li>
+                        <li>Encadeie seus métodos</li>
+                        <li>Comece certo, use uma CDN</li>
+                        <li>Tarefas que o jQuery nos ajuda</li>
+                    </ul>
+                </section>
+
+            <!-- Com jQuery nós escrevemos menos -->
+                <section>
+                    <h2>Com jQuery nós escrevemos menos</h2>
+                </section>
+
+                <section>
+                    <p>Isso não é difícil</p>
+                    <pre><code class="javascript">
+var divs = document.getElementsByTagName('a');
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].style.display = 'none';
+    }
+                        </code></pre>
+                    <p>Mas isso é jQuery</p>
+                    <pre><code class="javascript">
+$('a').css('display', 'none');
+                        </code></pre>
+                </section>
+
+                <section>
+                    <h2>Escreva menos, faça mais.</h2>
+                </section>
+
+                <section>
+                    <p>Com jQuery nós realmente escrevemos menos, e fazemos mais, porém não vamos nos esquecer que existe uma grande lib por trás de um simples</p>
+                    <pre><code class="javascript">
+$('a').css('display', 'none');
+                        </code></pre>
+
+                    <p>O que eu quero dizer é, não use jQuery se o que você precisa fazer é algo estupidamente simples</p>
+                </section>
+
+                <section>
+                    <p>O que eu disse no slide anterior só é valido se você estiver afim de performance, só é valido se você estiver interessado em fazer a pagina carregar com eficiência, etc...</p>
+                    
+                    <p>Se o que você precisa mesmo é só fazer as coisas funcionarem...</p>
+                </section>
+
+                <section>
+                    <h2>Foda-se todos</h2>
+                    <img src="images/hahaha.png" alt="" width="300" />
+                </section>
+
+            <!-- O básico do básico -->
+                <section>
+                    <h2>O básico do básico</h2>
+                    <p class="fragment">Se você sabe, selecionar elementos e usar métodos encadeados, durante estes próximos slides você pode ir tomar um cafezinho.</p>
+                </section>
+
+                <section>
+                    <h2>A filosofia do jQuery</h2>
+                    <p class="fragment">Encontre um HTML<span class="fragment">, faça algo com ele</span></p>
+                </section>
+
+                <section>
+                    <h2>Encontre um HTML</h2>
+                    <pre><code class="javascript">
+ $('#meuId');
+
+ $('.minhaClass');
+
+ $('span');
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Encontre um HTML</h2>
+                    <pre><code class="javascript">
+ $('#meuId').find('.algumaClass');
+
+ $('.minhaClass').find('li').last();
+
+ $('span').filter('[data-cadeira]');
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Faça algo com o HTML</h2>
+                    <pre><code class="javascript">
+ $('#meuId').remove();
+
+ $('.minhaClass').find('li').addClass('item');
+
+ $('span').attr('data-cadeira', 12);
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Métodos do jQuery que me ajudam a selecionar HTML</h2>
+                    <p><a href="http://api.jquery.com/category/selectors/" target="_blank" title="Métodos da categoria Selectors da API do jQuery">Métodos da categoria "Selectors" da API do jQuery</a></p>
+                </section>
+
+                <section>
+                    <h2>Métodos do jQuery que fazem algo com o HTML</h2>
+                    <div class="fragment">
+                        <p>Tem método pra garai em amigo</p>
+                        <img src="images/hahaha.png" width="300" alt="" />
+                    </div>
+                </section>
+
+                
+                <section>
+                    <h2>Métodos do jQuery que fazem algo com o HTML</h2>
+
+                    <ul>
+                        <li><a href="http://api.jquery.com/category/css/" target="_blank" title="Métodos para manipular o estilo de elementos">Métodos para manipular o estilo de elementos</a></li>
+                        <li><a href="http://api.jquery.com/category/effects/" target="_blank" title="Métodos para fazer efeitos">Métodos para fazer efeitos</a></li>
+                        <li><a href="http://api.jquery.com/category/dimensions/" target="_blank" title="Métodos que manipulam as dimensões de elementos">Métodos que manipulam as dimensões de elementos</a></li>
+                        <li><a href="http://api.jquery.com/category/properties/" target="_blank" title="Métodos que manipulam HTML">Métodos que manipulam HTML</a></li>
+                        <li><a href="http://api.jquery.com/" target="_blank" title="Enfim, veja toda a API">Enfim, veja toda a API</a></li>
+                    </ul>
+                </section>
+
+            <!-- Encadeie os métodos -->
+                <section>
+                    <h2>Encadeie os métodos</h2>
+                </section>
+
+                <section>
+                    <p>Se você faz isso</p>
+                    <pre><code class="javascript">
+$('#meuId').find('.content').animate({opacity : 1});
+$('#meuId').removeClass('desativado');
+$('#meuId').addClass('ativo');
+                    </code></pre>
+                </section>
+                
+                <section>
+                    <p>Saiba que você pode fazer isso</p>
+                    <pre><code class="javascript">
+$('#meuId').find('.content').animate({opacity : 1}).end()
+           .removeClass('desativado');
+           .addClass('ativo');
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Agora você que foi toma um cafezinho, já pode voltar.</h2>
+                </section>
+
+            <!-- Use um CDN -->
+                <section>
+                    <h2>Comece certo, use uma CDN</h2>
+                </section>
+
+                <section>
+                    <h2>CDN</h2>
+                    <p>Content Delivery Network, em português bem brasileiro quer dizer, carregar a pagina mais rápido.</p>
+                    <p>As CDNs mais conhecidas pra usar o jQuery, <a href="https://developers.google.com/speed/libraries/devguide#jqueryDiv" target="_blank" title="é do Google">é do Google</a>, <a href="http://www.asp.net/ajaxlibrary/cdn.ashx" target="_blank" title="da Microsoft">da Microsoft</a> e o próprio <a href="http://docs.jquery.com/Downloading_jQuery#CDN_Hosted_jQuery" target="_blank" title="jQuery possui sua CDN">jQuery possui sua CDN</a></p>
+                </section>
+
+                <section>
+                    <h2>Um pequeno simples motivo pra usar uma CDN</h2>
+                    <p>Entre várias palavras que eu poderia colocar aqui, uma CDN faz com que sua pagina abra mais rápido, simples assim. Uma CDN também vai te proporcionar uma ótima economia de banda</p>
+                </section>
+
+                <section>
+                    <h2>E se essa CDN ai tiver errada, ficar fora do ar, etc... meus sites não vão funcionar?</h2>
+                    <img src="images/pensando.png" width="300" alt="" />
+                </section>
+
+                <section>
+                    <h2>Usando CDN com fallback</h2>
+                    <pre><code class="html">
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script>window.jQuery || document.write('&lt;script src="js/libs/jquery-1.7.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+                    </code></pre>
+                    <p><a href="https://github.com/h5bp/html5-boilerplate/blob/master/index.html#L41" target="_blank" title="Vejam este código na linha 41 da index.html do H5BP">Vejam este código na linha 41 da index.html do H5BP</a></p>
+                </section>
+
+            <!-- Tarefas que o jQuery nos ajuda -->
+                <section>
+                    <h2>Testando tipo de dados</h2>
+                </section>
+
+                <section>
+                    <h2>Testando tipo de dados</h2>
+                    <p>Isso é uma tarefa difícil, o jQuery nos ajuda com os seguintes métodos</p>
+                    <ul>
+                        <li>$.inArray</li>
+                        <li>$.isEmptyObject</li>
+                        <li>$.isPlainObject</li>
+                        <li>$.isArray</li>
+                        <li>$.isNumeric</li>
+                        <li>$.isFunction</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Ajax</h2>
+                    <p>Ajax com jQuery é muito facil</p>
+                    <pre><code>
+$.ajax({
+    url : 'http://twitter.com/statuses/user_timeline/felquis.json?count=4',
+    dataType : 'jsonp',
+    success : function (res) {
+        $.each(res, function (i, e) {
+            alert(e.text);
+        });
+    }
+});
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Bom...</h2>
+                </section>
+
+                <section>
+                    <h2>Meus slides estão acabando</h2>
+                </section>
+
+                <section>
+                    <h2>Tarefa para casa</h2>
+                    <ul>
+                        <li><a href="http://docs.jquery.com/Main_Page" title="jQuery API" target="_blank">jQuery API</a></li>
+                        <li><a href="http://herberthamaral.com/jquery-fundamentals-book-pt-BR.pdf" title="fundamentos de jQuery" target="_blank">fundamentos de jQuery</a></li>
+                        <li><a href="http://jquerybrasil.org/" title="jQueryBrasil.org" target="_blank">jQueryBrasil.org</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Perguntas?</h2>
+                    <img src="images/vish.JPG" width="300" alt="" />
+                </section>
+
+                <section data-state="default">
+                    <h1>Fim</h1>
+                    <h3>twitter {<a href="https://twitter.com/felquis" target="_blank" title="@felquis}">@felquis}</a>} / Blog {<a href="http://tutsmais.com.br" target="_blank" title="TutsMais">TutsMais</a>}</h3>
+                </section>
+            </div>
+
+            <!-- The navigational controls UI -->
+            <aside class="controls">
+                <a class="left" href="#">&#x25C4;</a>
+                <a class="right" href="#">&#x25BA;</a>
+                <a class="up" href="#">&#x25B2;</a>
+                <a class="down" href="#">&#x25BC;</a>
+            </aside>
+
+            <!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+            <div class="progress"><span></span></div>
+            
+        </div>
+
+        <!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+        <script src="lib/js/head.min.js"></script>
+
+        <script>
+            // Load the main reveal.js script
+            head.js( 'js/reveal.js', function() {
+                // Parse the query string into a key/value object
+                var query = {};
+
+                location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+                    query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+                } );
+
+                // Fires each time a new slide is activated
+                Reveal.addEventListener( 'slidechanged', function( event ) {
+                    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+                } );
+
+                // Full list of configuration options available here:
+                // https://github.com/hakimel/reveal.js#configuration
+                Reveal.initialize({
+                    controls: true,
+                    progress: true,
+                    history: true,
+
+                    theme: query.theme || 'default', // default/neon/beige
+                    transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+                });
+            } );
+            
+            // Load third party scripts
+            head.js( 'lib/js/classList.js' );
+            head.js( 'lib/js/highlight.js', function() {
+                // Fire off syntax highlighting for potential code samples in the slides
+                hljs.initHighlightingOnLoad();
+            } );
+
+            // If we're runnning the notes server we need to include some additional JS
+            // TODO Is there a better way to determine if we're running the notes server?
+            if( window.location.host === 'localhost:1947' ) {
+                head.js( 'socket.io/socket.io.js', 'plugin/speakernotes/client.js' );
+            }
+            
+            var _gaq=[['_setAccount','UA-23934923-6'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+        
+    </body>
+</html>
