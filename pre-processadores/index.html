@@ -1,0 +1,702 @@
+<!doctype html>  
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pré-processadores de CSS - Ofelquis Gimenes</title>
+    <meta name="description" content="O que são Pré-processadores e como eles podem te ajudar te ajudar a escrever o bom e velho CSS" />
+    <meta name="author" content="Ofelquis Gimenes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="lib/zenburn.css">
+  </head>
+  
+  <body>
+    
+    <div class="reveal">
+      <div class="state-background"></div>
+
+      <div class="slides">
+      <!-- Horizontal Slider -->
+        <section data-state="inicial">
+          <script>
+            if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write('<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>');
+          </script>
+        <!-- Vertical Slider -->
+          <section data-state="inicio">
+            <h1>Pré-processadores<br />de css</h1>
+          </section>
+
+        <!-- Vertical Slider -->
+          <section data-state="inicio2">
+            <h2>Meu nome é Ofelquis</h2>
+          </section>
+
+        <!-- Vertical Slider -->
+          <section data-state="inicio3">
+            <p>
+              Sou desenvolvedor Front-End na Agência Digital <a href="http://icomp.com" title="Agência Digital ICOMP" target="_blank">ICOMP</a>
+              escrevo sobre desenvolvimento Web, no 
+              <a href="http://tutsmais.com.br/blog/author/ofelquis/" title="TutsMais" target="_blank">TutsMais</a>, 
+              <a href="http://www.frontendbrasil.com.br/author/ofelquis/" title="Front-End Brasil" target="_blank"> Front-End Brasil</a> e no 
+              <a href="http://javascriptbrasil.com/author/ofelquis" title="JavaScript Brasil" target="_blank">JavaScript Brasil</a>,
+              e também sou um dos organizadores do <a href="http://devcastbrasil.com/" title="DevCast Brasil" target="_blank">DevCast Brasil</a>.
+            </p>
+          </section>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <h2>Sumário</h2>
+          <p>O que irei falar</p>
+          <ul>
+            <li class="fragment">O que é um pré-processador?</li>
+            <li class="fragment">Entendendo o que um pré-processador faz</li>
+            <li class="fragment">Os problemas que enfrentamos ao escrever CSS</li>
+            <li class="fragment">Como um pré-processador vai me ajudar?</li>
+            <li class="fragment">...</li>
+            <li class="fragment">Surpresa ;D</li>
+            <li class="fragment">...</li>
+          </ul>
+        </section>
+
+      <!-- Horizontal Slider // Água -->
+        <section data-state="default"></section>
+        
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <h2>O que são pré-processadores?</h2>
+          <p>
+            <img src="css/images/o-que-sao-pre-processadores.jpg" alt="" width="320" height="293" />
+          </p>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default programa-conversoes-lexicas">
+          <p>Um pré-processador</p>
+          <p class="fragment">É um programa que recebe um texto e efetua conversões léxicas nele.</p>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <h2>O que seriam essas conversões léxicas?</h2>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default more-space-p">
+          <p>
+            Conversões léxicas é praticamente o mesmo que pegar um texto em português, escrito de forma informal, (por exemplo, com gírias e sem uma pontuação correta) e transforma-lo em um texto escrito de forma formal.
+          </p>
+
+          <p class="fragment">Essas conversões léxicas podem incluir macros de substituição, inclusão condicional, e inclusão de outros arquivos.</p>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <h2>Wow.</h2>
+          <img src="css/images/gato-nossa.jpg" alt="">
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <h2>Isso é...</h2>
+          <img src="css/images/bem-legal.png" alt="" width="300"/>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <img src="css/images/duvida-macaco.jpg" alt="">
+          <p><span class="fragment">Mas </span> <span class="fragment"> como assim </span> <span class="fragment"> conversões </span> <span class="fragment"> léxicas?</span></p>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+        <!-- Vertical Slider -->
+          <section data-state="more-space-p">
+            <h3>Recapitulando...</h3>
+
+            <p class="fragment">
+              Conversões léxicas é praticamente o mesmo que pegar um texto em português, escrito de forma informal, (por exemplo, com gírias e sem uma pontuação correta) e transforma-lo em um texto escrito de forma formal.
+            </p>
+            <p class="fragment">Conversões léxicas podem incluir macros de substituição, inclusão condicional, e inclusão de outros arquivos.</p>
+          </section>
+
+        <!-- Vertical Slider -->
+          <section>
+            <h2>Macros</h2>
+            <p>Segundo a Wikipédia (em outras palavras) macros são abstrações, ou seja, pequenas porções de código, que define como um padrão deve ser substituído por outro padrão.</p>
+          </section>
+
+        <!-- Vertical Slider -->
+          <section>
+            <p>Hum então em uma conversão léxica, o programa irá buscar um <span title="Que é um padrão no código.">macro</span>, e irá substituí-lo por outro padrão</p>
+            <img src="css/images/meme-duvida.jpg" alt="">
+          </section>
+        </section>
+
+      <!-- Horizontal Slider // Água -->
+        <section data-state="default">
+          
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <p>Isso parece interessante.</p>
+          <img src="css/images/cereal-guy1.jpg" alt="" width="600"/>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <p>Mas o que isso vai me ajudar ao escrever CSS?</p>
+          <img src="css/images/cereal-guy2.jpg" alt="" width="600"/>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <p>Um pré-processador, resolve alguns problemas comuns que temos diariamente ao escrever CSS</p>
+          <p class="fragment">Por exemplo:</p>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <p>Muitos prefixos</p>
+          <pre><code class="CSS" style="font-size: 18px">
+  .seletor {
+    -webkit-transition: background 800ms ease;
+       -moz-transition: background 800ms ease;
+        -ms-transition: background 800ms ease;
+         -o-transition: background 800ms ease;
+            transition: background 800ms ease;
+  }
+          </code></pre>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <p>Folhas de estilo muito extensas</p>
+          <img src="css/images/folha-extensa.png" alt="">
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <p>Valores repetitivos</p>
+          <pre><code class="css" style="font-size: 18px">
+  #header {
+    color: #19cade;
+  }
+  #footer a {
+    color: #19cade;
+  }
+  #content h2 {
+    color: #19cade;
+  }
+            </code></pre>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <h2>Okay, já conhecemos nossos problemas, como é que solucionamos eles?</h2>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <h2>Imaginando que você esteja usando Windows</h2>
+          <p class="fragment">Eu os apresento o Less CSS</p>
+          <img class="fragment" src="css/images/lesscss.png" alt="">
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <p>O Less é um pré-processador de CSS, que funciona muito bem no Windows, ele é utilizado por grandes equipes de Front-Ends, como por exemplo do Twitter.</p>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <p>O Less, adiciona algumas features ao nosso velho e bom CSS, e é isso que faz toda a diferença. Por exemplo:</p>
+
+            <ul style="font-size: 32px">
+              <li>Podemos setar variáveis no nosso código;</li>
+              <li>Podemos incluir um arquivo CSS dentro de outro arquivo CSS</li>
+              <li>Criar mixins, que nada mais é que funções.</li>
+              <li>Regras aninhadas</li>
+              <li>Comentários em linha</li>
+            </ul>
+
+          <p style="margin-top: 30px;">Bom, mas vamos ver uma coisa de cada vez, vamos começar instalando-o</p>
+        </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <section>
+            <h2>Como instalar o compilador do Less, no seu Windows</h2>
+            <p>Existem duas formas muito fáceis, de compilar um arquivo do lesscss, eu vou mostrar a melhor.</p>
+          </section>
+
+        <!-- Vertical Slider -->
+          <section>
+            WinLess - <a href="https://github.com/cloudhead/less.js/wiki/GUI-compilers-that-use-LESS.js" target="_blank" title="winLess">Baixe-o aqui</a>
+            <img src="css/images/winless.png" alt="" width="994" />
+          </section>
+        </section>
+
+        
+      <!-- Horizontal Slider -->
+      <section data-state="default">
+        <h2>Conhecendo o WinLess</h2>
+        <img src="css/images/conhecer-winless.png" alt="">
+      </section>
+
+      <section data-state="default">
+        <h2>Usando regras aninhadas</h2>
+      </section>
+
+      <section data-state="default">
+        <h2>Usando regras aninhadas</h2>
+        <p>Somos acostumados a fazer isso</p>
+        <pre><code class="CSS" style="font-size: 18px">
+  #lista {
+    margin: 0 auto;
+    width: 400px;
+  }
+  #lista li {
+    color: silver;
+    font-size: 14px;
+  }
+  #lista li a {
+    text-decoration: none;
+    color: black;
+  }
+          </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Usando regras aninhadas</h2>
+        <p>Agora podemos fazer assim</p>
+        <pre><code class="CSS" style="font-size: 18px">
+  #lista {
+    margin: 0 auto;
+    width: 400px;
+
+    li {
+      color: silver;
+      font-size: 14px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+          </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>pseudo-elemento, pseudo-classe, seletores avançados</h2>
+      </section>
+
+      <section data-state="default">
+        <h2>pseudo-elemento, pseudo-classe, outros seletores</h2>
+        <p>Somos acostumados com isso</p>
+        <pre><code class="CSS" style="font-size: 18px">
+#menu a {
+  color: black;
+}
+#menu a:hover {
+  color: green;
+}
+#menu a:active {
+  color: red;
+}
+#menu a[data-tooltip] {
+  text-decoration: underline;
+}
+#menu a::before {
+  content: '> ';
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>pseudo-elemento, pseudo-classe, outros seletores</h2>
+        <p>Agora podemos fazer assim</p>
+        <pre><code class="CSS" style="font-size: 18px">
+#menu {
+  a {
+    color: black;
+
+    &amp;:hover {
+      color: green;
+    }
+
+    &amp;:active {
+      color: red;
+    }
+
+    &amp;[data-tooltip] {
+      text-decoration: underline
+    }
+
+    &amp;::before {
+      content : '> ';
+    }
+  }
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Comentários no CSS</h2>
+        <p class="fragment">Precisamos mesmo deles?</p>
+        <p class="fragment">Sim</p>
+        <p class="fragment">Precisamos deles em produção?</p>
+        <p class="fragment">Não</p>
+      </section>
+
+      <section data-state="default">
+        <h2>Comentários no CSS</h2>
+        <p>Como somos acostumados a faze-los</p>
+        <pre><code class="CSS" style="font-size: 18px">
+/*
+  Estilizando o menu principal
+*/
+#menu {
+  width: 100%;
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Comentários no CSS</h2>
+        <p>Como podemos faze-los</p>
+        <pre><code class="CSS" style="font-size: 18px">
+//  Estilizando o menu principal
+#menu {
+  width: 100%;
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Comentários no CSS</h2>
+        <p>O resultado</p>
+        <pre><code class="CSS" style="font-size: 18px">
+#menu {
+  width: 100%;
+}
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Operados lógicos no CSS</h2>
+        <p>Como fazemos hoje</p>
+        <p class="fragment">Nós fazemos?</p>
+      </section>
+
+      <section data-state="default">
+        <h2>Operados lógicos</h2>
+        <p>Como podemos fazelos</p>
+        <pre><code class="CSS" style="font-size: 18px">
+#menu {
+  width: 1000px;
+}
+#menu ul {
+  width: 1000px / 2
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Operados lógicos</h2>
+        <p>O resultado</p>
+        <pre><code class="CSS" style="font-size: 18px">
+#menu {
+  width: 1000px;
+}
+#menu ul {
+  width: 500px;
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <p>Mas que <span class="fragment">bruxaria é essa</span></p>
+        <img src="css/images/bruxaria.jpg" width="900" alt="" />
+      </section>
+
+      <section data-state="default">
+        <h2>import no CSS</h2>
+        <p class="fragment"><a href="http://www.cssnolanche.com.br/nao-use-import/" title="Não use @import">Não use @import</a></p>
+      </section>
+
+      <section data-state="default">
+        <p>Mas eu quero modularizar o meu CSS</p>
+        <img src="css/images/birra.jpeg" alt="" />
+      </section>
+
+      <section data-state="default">
+        <h2>Modularizando o CSS com Less</h2>
+        <p>Nada muda, usamos a regra @import e somos felizes</p>
+         <pre><code class="CSS" style="font-size: 18px">
+@import("conteudo.css");
+@import("sidebar.css");
+@import("footer.css");
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Modularizando o CSS com Less</h2>
+        <p>O Less cria um único arquivo CSS, que possui o estilo de todos os arquivos</p>
+        <img src="css/images/folha-extensa.png" alt="" />
+      </section>
+
+      
+      <section data-state="default">
+        <h2>Variáveis no CSS</h2>
+        <p>Como fazemos hoje</p>
+        <p class="fragment">Nós fazemos?</p>
+      </section>
+      
+      <section data-state="default">
+        <h2>Variáveis no CSS</h2>
+        <p>Como podemos fazer</p>
+         <pre><code class="CSS" style="font-size: 18px">
+@width : 1000px;
+@url : '/css/images';
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Variáveis no CSS</h2>
+        <p>Exemplo de uso</p>
+         <pre><code class="CSS" style="font-size: 18px">
+#menu {
+  width: 1000px;
+}
+#menu ul {
+  width: 1000px / 2;
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Variáveis no CSS</h2>
+        <p>Exemplo de uso</p>
+         <pre><code class="CSS" style="font-size: 18px">
+@width : 1000px;
+
+#menu {
+  width: @width;
+}
+#menu ul {
+  width: @width / 2;
+}
+        </code></pre>
+      </section>
+      
+      <section data-state="default">
+        <h2>Variáveis no CSS</h2>
+        <p>Resultado</p>
+         <pre><code class="CSS" style="font-size: 18px">
+#menu {
+  width: 1000px;
+}
+#menu ul {
+  width: 500px;
+}
+        </code></pre>
+      </section>
+      
+      <section data-state="default">
+        <h2>No Less as variáveis tem escopo</h2>
+         <pre><code class="CSS" style="font-size: 18px">
+@width : 1000px;
+
+#menu {
+  @width : 2000px; 
+
+  width: @width;
+}
+#menu ul {
+  width: @width / 2;
+}
+        </code></pre>
+      </section>
+      
+      <section data-state="default">
+        <h2>No Less as variáveis tem escopo</h2>
+        <p>Resultado</p>
+         <pre><code class="CSS" style="font-size: 18px">
+#menu {
+  width: 2000px;
+}
+#menu ul {
+  width: 500px;
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>No Less as variáveis tem escopo</h2>
+         <pre><code class="CSS" style="font-size: 18px">
+@width : 1000px;
+
+#menu {
+  @width : 2000px; 
+
+  width: @width;
+
+  ul {
+    width: @width / 2;
+  }
+}
+        </code></pre>
+      </section>
+      
+      <section data-state="default">
+        <h2>No Less as variáveis tem escopo</h2>
+         <pre><code class="CSS" style="font-size: 18px">
+#menu {
+  width: 2000px;
+}
+#menu ul {
+  width: 1000px;
+}
+        </code></pre>
+      </section>
+      
+      <section data-state="default">
+        <h2>Usando mixins</h2>
+      </section>
+      
+      <section data-state="default">
+        <h2>Usando mixins</h2>
+        <p>Criando um mixin</p>
+         <pre><code class="CSS" style="font-size: 18px">
+.transition(@valor: all 1s linear) {
+    -webkit-transition: @valor;
+    -moz-transition: @valor;
+    -o-transition: @valor;
+    -ms-transition: @valor;
+    transition: @valor;
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Usando mixins</h2>
+        <p>Usando um mixin</p>
+         <pre><code class="CSS" style="font-size: 18px">
+.transition(@valor: all 1s linear) {
+    -webkit-transition: @valor;
+    -moz-transition: @valor;
+    -o-transition: @valor;
+    -ms-transition: @valor;
+    transition: @valor;
+}
+
+#seletor {
+  .transition(all 1s linear);
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Usando mixins</h2>
+        <p>Resultado</p>
+         <pre><code class="CSS" style="font-size: 18px">
+#seletor {
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  transition: all 1s linear;
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Ah! Podemos concatenar váriaveis</h2>
+         <pre><code class="CSS" style="font-size: 18px">
+@url : '/css/img';
+
+.seletor {
+  background: url("@{url}/bizarro.jpg");
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Concatenar váriaveis</h2>
+        <p>Resultado</p>
+         <pre><code class="CSS" style="font-size: 18px">
+.seletor {
+  background: url("/css/img/bizarro.jpg");
+}
+        </code></pre>
+      </section>
+
+      <section data-state="default">
+        <h2>Bom, é isso ai</h2>
+        <img src="css/images/issoai.png" alt="" />
+      </section>
+
+      <section data-state="default">
+        <h2>Tarefa para casa</h2>
+        <ul>
+          <li><a href="http://pt.wikipedia.org/wiki/Pr%C3%A9-processador" target="_blank" title="wikipédia Pré-processador">Conceito Pré-processador</a></li>
+          <li><a href="http://tutsmais.com.br/blog/2012/saiba-o-que-e-less-e-como-ele-pode-agilizar-seu-trabalho/" title="Saiba o que é Less, e como ele pode agilizar seu trabalho." target="_blank">Saiba o que é less, e como usa-lo com Sublime</a></li>
+          <li><a href="http://lesscss.loopinfinito.com.br/" target="_blank" title="">lesscss.org em português</a></li>
+          <li><a href="http://talks.zenorocha.com/frontinrio-2012/#1" target="_blank" title="CSS Sucks por Zeno Rocha">CSS Sucks por Zeno Rocha</a></li>
+        </ul>
+      </section>
+
+      <!-- Horizontal Slider -->
+        <section data-state="default">
+          <h1>Fim</h1>
+          <h3>twitter {<a href="https://twitter.com/felquis" target="_blank" title="@felquis}">@felquis}</a>} / Blog {<a href="http://tutsmais.com.br" target="_blank" title="TutsMais">TutsMais</a>}</h3>
+        </section>
+      </div>
+
+      <aside class="controls">
+        <a class="left" href="#">&#x25C4;</a>
+        <a class="right" href="#">&#x25BA;</a>
+        <a class="up" href="#">&#x25B2;</a>
+        <a class="down" href="#">&#x25BC;</a>
+      </aside>
+
+      <div class="progress"><span></span></div>
+      
+    </div>
+
+    <script src="lib/highlight.js"></script>
+    <script src="lib/classList.js"></script>
+    
+    <script src="js/reveal.js"></script>
+    
+    <script>
+      var query = {};
+      location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+        query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+      } );
+
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        loop: false,
+        mouseWheel: true,
+        rollingLinks: true,
+        theme: query.theme || 'default',
+        transition: query.transition || 'concave'
+      });
+
+      hljs.initHighlightingOnLoad();
+    </script>
+
+  </body>
+</html>
