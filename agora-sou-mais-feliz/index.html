@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>reveal.js - The HTML Presentation Framework</title>
+
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+        <!-- For synta slink rel="stylesheet" hrf="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+                <section>
+                    <section>
+                        <h2>Oi pessoal</h2>
+                    </section>
+
+                    <section class="down">
+                        <p>Meu nome é Ofelquis Gimenes<br> Sou Front-end Developer</p>
+                    </section>
+                </section>
+
+                <section data-state="street">
+                    <section>
+                        Vou falar sobre
+                    </section>
+
+                    <section>
+                        <h1>Pre-processadores</h1>
+                        <h1 class="fragment">E como eles</h1>
+                        <h1 class="fragment">Tornaram</h1>
+                    </section>
+
+                    <section>
+                        <h1>Minha vida</h1>
+                        <h1 class="fragment">mais feliz.</h1>
+                    </section>
+                </section>
+
+                <section>
+                    <h3>O que vou passar pra vocês hoje, pode ser facilmente confundido com uma história de amor.</h3>
+                    <p class="fragment">Bom, talvez seja!</p>
+                </section>
+
+                <section>
+                    <h1>Pra começar</h1>
+                    <p class="fragment">A primeira pergunta de alguns é<span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span></p>
+                </section>
+
+                <section>
+                    <h2>O que é um pre-processador?</h2>
+
+                    <p>
+                        <img src="img/image2.gif" height="267" width="500" alt="" class="image">
+                    </p>
+
+                    <a href="http://felquis.com/talks/pre-processadores/#/4" target="_blank" class="fragment" title="Slides mostrando um pouco sobre o que um pré-processador faz.">Confira este slide!</a>
+                </section>
+
+                <section>
+                    <h2>A pergunta é...</h2>
+                    <p>Por que eu sou mais feliz com um pré-processador de CSS?</p>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Vamos começar instalando</h2>
+                        <p>Se você já tem o Ruby instalado, apenas rode "gem install compass"</p>
+                        <p><a href="http://compass-style.org/install/" title="Mostra como iniciar com Compass">Como instalar o Compass</a></p>
+                    </section>
+
+                    <section>
+                        <h2>Crie um projeto com Compass</h2>
+<pre><code>
+$ cd <projeto>
+$ compass install bare --sass-dir "sass" --css-dir "css" --javascripts-dir "js" --images-dir "img"
+</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Agora que esta tudo pronto</h2>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>#1 coisa que me torna mais feliz</h2>
+                    </section>
+
+                    <section>
+                        <h2>Por que eu...</h2>
+                        <p>Posso concatenar arquivos</p>
+                    </section>
+
+                    <section>
+                        <p>No arquivo teste.scss eu coloquei</p>
+    <pre><code class="css">
+    @import "arquivo1.scss";
+    @import "arquivo2.scss";
+    </code></pre>
+                        <p>Agora o arquivo teste.scss possui o conteúdo dos arquivos arquivo1.scss e arquivo2.scss</p>
+                    </section>
+
+                    <section>
+                        <h2>Por inquanto ignorem os arquivos com .scss</h2>
+                    </section>
+                </section>
+
+
+                <section>
+
+                    <section>
+                        <h2>#2 coisa que me torna mais feliz</h2>
+                    </section>
+
+                    <section>
+                        <h2>Por que eu...</h2>
+                        <p>Escrevo menos código</p>
+                    </section>
+
+                    <section>
+                        <h2>Antes eu fazia assim:</h2>
+<pre><code>
+.item-wrap .item {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+}
+</code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Hoje eu faço assim:</h2>
+<pre><code class="css">
+.item-wrap .item {
+    @include transform(rotate(10deg));
+}
+</code></pre>
+<p>Isso se chama mixin</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>#3 coisa que me faz mais feliz</h2>
+                    </section>
+
+                    <section>
+                        <h2>Regras aninhadas</h2>
+                        <p>
+                            <img src="img/image3.gif" height="320" width="320" alt="">
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>Antes eu fazia assim:</h2>
+<pre><code class="css">
+    .item-wrap {
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .item-wrap .item {
+        float: left;
+        padding: 10px 10px 10px 20px;
+        text-decoration: none;
+    }
+
+    .item-wrap .item:hover {
+        text-decoration: underline;
+    }
+</code></pre>
+                    </section>
+
+
+                    <section>
+                        <h2>Hoje eu faço assim:</h2>
+<pre><code class="sass">
+    .item-wrap {
+        overflow: hidden;
+        margin: 0;
+
+        .item {
+            float: left;
+            padding: 10px 10px 10px 20px;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>#4 coisa que me faz mais feliz</h2>
+                    </section>
+
+                    <section>
+                        <h2>Variáveis</h2>
+                        <img src="img/image4.gif" height="141" width="250" alt="">
+                    </section>
+
+                    <section>
+                        <h2>Antes eu fazia assim:</h2>
+<pre><code lang="css">
+    .algum .seletor {
+        color: #19cade;
+    }
+
+    /* Depois de 70 linhas */
+
+    .outro .seletor {
+        color: #19cade;
+    }
+
+    /* Depois de 100 linhas */
+
+    .mais-um .seletor {
+        color: #19cade;
+    }
+</code></pre>
+                    </section>
+
+
+                    <section>
+                        <h2>Hoje eu faço assim:</h2>
+<pre><code lang="css">
+    $cor_geral : "#19cade";
+
+    .algum .seletor {
+        color: $cor_geral;
+    }
+
+    /* Depois de 70 linhas */
+
+    .outro .seletor {
+        color: $cor_geral;
+    }
+
+    /* Depois de 100 linhas */
+
+    .mais-um .seletor {
+        color: $cor_geral;
+    }
+</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>#5 coisa que me torna mais feliz</h2>
+                    </section>
+
+                    <section>
+                        <h2>Comentário em linha</h2>
+                    </section>
+
+                    <section>
+                        <h2>Quem foi o santo que criou apenas comentário em bloco para o CSS?</h2>
+                        <p><img src="img/image6.gif" height="141" width="250" alt=""></p>
+                    </section>
+
+                    <section>
+                        <h2>Antes eu fazia assim:</h2>
+
+<pre><code class="css">
+    /* Cores do topo */
+    .topo-de-dia {
+        background: white;
+    }
+
+    .topo-de-noite {
+        background: black;
+    }
+</code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Hoje eu faço assim:</h2>
+<pre><code class="css">
+    // Cores do topo
+    .topo-de-dia {
+        background: white;
+    }
+
+    .topo-de-noite {
+        background: black;
+    }
+</code></pre>
+                    </section>
+
+
+                </section>
+
+                <!--
+                <section>
+                    <ul>
+                        <li>
+                            <a href="http://tutsmais.com.br/blog/author/ofelquis/" target="_blank" title="TutsMais">TutsMais</a>
+                        </li>
+                        <li>
+                            <a href="http://jquerybrasil.org/author/ofelquis/" target="_blank"  title="jQuery Brasil">jQuery Brasil</a>
+                        </li>
+                        <li>
+                            <a href="http://javascriptbrasil.com/author/ofelquis" target="_blank" title="JavaScript Brasil">JavaScript Brasil</a>
+                        </li>
+                        <li>
+                            <a href="http://www.frontendbrasil.com.br/author/ofelquis/" target="_blank" title="Front-end Brasil">Front-end Brasil</a>
+                        </li>
+                        <li>
+                            <a href="http://devcastbrasil.com/category/weekly/" target="_blank" title="DevCast Weekly">DevCast Weekly</a>
+                        </li>
+                    </ul>
+                </section>
+                -->
+
+                <!--
+                    <section>
+                        <h1 style="text-align: left; line-height: 134px; font-size: 133px; margin: 0; ">Pré-processadores,<br> e como tornaram<br>
+                            <span style="letter-spacing: 14px;">minha vida</span>
+                            <br>mais feliz
+                        </h1>
+                    </section>
+                -->
+            </div>
+
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
