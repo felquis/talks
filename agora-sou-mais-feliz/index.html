@@ -66,7 +66,7 @@
 
                 <section>
                     <h1>Pra começar</h1>
-                    <p class="fragment">A primeira pergunta de alguns é<span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span></p>
+                    <p class="fragment">A primeira pergunta de alguns é</p>
                 </section>
 
                 <section>
@@ -80,7 +80,7 @@
                 </section>
 
                 <section>
-                    <h2>A pergunta é...</h2>
+                    <h2>Mas pergunta é...</h2>
                     <p>Por que eu sou mais feliz com um pré-processador de CSS?</p>
                 </section>
 
@@ -94,9 +94,15 @@
                     <section>
                         <h2>Crie um projeto com Compass</h2>
 <pre><code>
-$ cd <projeto>
-$ compass install bare --sass-dir "sass" --css-dir "css" --javascripts-dir "js" --images-dir "img"
+compass create --sass-dir "sass" --css-dir "css" --javascripts-dir "js" --images-dir "img"
 </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Comandos básicos</h2>
+                        <pre><code class="shell">compass watch</code></pre>
+                        <p>e</p>
+                        <pre><code class="shell">compass compile</code></pre>
                     </section>
                 </section>
 
@@ -115,19 +121,25 @@ $ compass install bare --sass-dir "sass" --css-dir "css" --javascripts-dir "js" 
                     </section>
 
                     <section>
-                        <p>No arquivo teste.scss eu coloquei</p>
-    <pre><code class="css">
-    @import "arquivo1.scss";
-    @import "arquivo2.scss";
-    </code></pre>
-                        <p>Agora o arquivo teste.scss possui o conteúdo dos arquivos arquivo1.scss e arquivo2.scss</p>
+                        <h2>Antes</h2>
+                        <p>Eu tinha que trabalhar em arquivos muito grandes 1, 2, 3 mil linhas de CSS</p>
+
+                        <p>Por que é importante evitar usar o @import do CSS</p>
                     </section>
 
                     <section>
-                        <h2>Por inquanto ignorem os arquivos com .scss</h2>
+                        <h2>Hoje</h2>
+                        <p>Eu posso usar @import livremente por que o pré-processador concatena os arquivos para mim.</p>
+
+                        <p>Por exemplo se no arquivo.scss</p>
+    <pre><code class="css">
+    @import "arquivo2.scss";
+    @import "arquivo3.scss";
+    </code></pre>
+                        <p>O arquivo.scss vai conter os CSS dos dois sendo 'chamados' dentro dele.</p>
+
                     </section>
                 </section>
-
 
                 <section>
 
@@ -170,7 +182,7 @@ $ compass install bare --sass-dir "sass" --css-dir "css" --javascripts-dir "js" 
                     </section>
 
                     <section>
-                        <h2>Regras aninhadas</h2>
+                        <h2>São as regras aninhadas</h2>
                         <p>
                             <img src="img/image3.gif" height="320" width="320" alt="">
                         </p>
@@ -224,7 +236,7 @@ $ compass install bare --sass-dir "sass" --css-dir "css" --javascripts-dir "js" 
                     </section>
 
                     <section>
-                        <h2>Variáveis</h2>
+                        <h2>As variáveis</h2>
                         <img src="img/image4.gif" height="141" width="250" alt="">
                     </section>
 
@@ -253,7 +265,7 @@ $ compass install bare --sass-dir "sass" --css-dir "css" --javascripts-dir "js" 
                     <section>
                         <h2>Hoje eu faço assim:</h2>
 <pre><code lang="css">
-    $cor_geral : "#19cade";
+    $cor_geral : #19cade;
 
     .algum .seletor {
         color: $cor_geral;
@@ -316,8 +328,107 @@ $ compass install bare --sass-dir "sass" --css-dir "css" --javascripts-dir "js" 
     }
 </code></pre>
                     </section>
+                </section>
 
+                <section>
+                    <h2>#5 coisa que me torna mais feliz</h2>
+                </section>
 
+                <section>
+                    <h2>Os mixins</h2>
+                </section>
+
+                <section>
+                    <h2>Criando um mixin</h2>
+<pre><code class="css">
+@mixin transform($params) {
+    -webkit-transform: $params;
+    -moz-transform: $params;
+    -ms-transform: $params;
+    -o-transform: $params;
+    transform: $params;
+}
+</code></pre>
+                </section>
+                <section>
+                    <h2>Usando um mixin</h2>
+<pre><code class="css">
+body {
+    @include transform(rotate(10deg));
+}
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Coleção de mixins</h2>
+                    <p><a href="http://bourbon.io/" target="_blank" title="Bourbon.io">bourbon.io</a></p>
+                </section>
+
+                <section>
+                    <h2>#6 coisa que me torna mais feliz</h2>
+                </section>
+
+                <section>
+                    <h2>Sprite generator</h2>
+                </section>
+
+                <section>
+                    <h2>Antes</h2>
+                    <p>Eu criava uma imagem no Photoshop encaixando todas as imagens do meu sprite</p>
+                    <p>E para coloca-los na posição certa no CSS era muito difícil</p>
+                </section>
+
+                <section>
+                    <p><img src="img/image7.gif" height="300" width="500"></p>
+                </section>
+
+                <section>
+                    <p><img src="img/image8.gif" height="473" width="598" alt=""></p>
+                </section>
+
+                <section>
+                    <p><img src="img/image9.gif" height="473" width="598" alt=""></p>
+                </section>
+
+                <section>
+                    <h2>Hoje</h2>
+                    Como eu uso o <a href="http://tableless.com.br/css-sprites/" target="_blank" title="Sprite generator">sprite generator</a> minha vida é bem mais fácil.
+<pre><code class="css">
+@import "icones/*.png";
+
+.item {
+    @include icones-sprite('icon1');
+    display: block;
+    width: icones-sprite-width('icon1');
+    height: icones-sprite-height('icon1');
+}
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>E a mágica acontece</h2>
+<pre><code class="css">
+.icones-sprite, .item {
+  background: url('/img/icones-s3029a34d13.png') no-repeat;
+}
+
+.item {
+  background-position: 0 0;
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Bom, acho que isso é tudo!</h2>
+                    <p><img src="img/image10.jpg" height="187" width="300" alt=""></p>
+                </section>
+
+                <section>
+                    <h2>Perguntas?</h2>
+                    <p><a href="http://felquis.com/" target="_blank" title="felquis.com">felquis.com</a></p>
                 </section>
 
                 <!--
@@ -351,8 +462,6 @@ $ compass install bare --sass-dir "sass" --css-dir "css" --javascripts-dir "js" 
                     </section>
                 -->
             </div>
-
-
         </div>
 
         <script src="lib/js/head.min.js"></script>
